@@ -8,7 +8,7 @@ data CProxy (c :: Currency) = CProxy
 
 -- a class for working with Currency types
 class CurrencyClass (c :: Currency) where
-  code     :: CProxy c -> String
+  code :: CProxy c -> String
   decimals :: CProxy c -> Int
 
 -- individual currency types with the Currency kind
@@ -180,665 +180,665 @@ foreign import data ZMW :: Currency
 foreign import data ZWL :: Currency
 
 instance currencyAED :: CurrencyClass AED where
-  code     _ = "AED"
+  code _ = "AED"
   decimals _ = 2
 
 instance currencyAFN :: CurrencyClass AFN where
-  code     _ = "AFN"
+  code _ = "AFN"
   decimals _ = 2
 
 instance currencyALL :: CurrencyClass ALL where
-  code     _ = "ALL"
+  code _ = "ALL"
   decimals _ = 2
 
 instance currencyAMD :: CurrencyClass AMD where
-  code     _ = "AMD"
+  code _ = "AMD"
   decimals _ = 2
 
 instance currencyANG :: CurrencyClass ANG where
-  code     _ = "ANG"
+  code _ = "ANG"
   decimals _ = 2
 
 instance currencyAOA :: CurrencyClass AOA where
-  code     _ = "AOA"
+  code _ = "AOA"
   decimals _ = 2
 
 instance currencyARS :: CurrencyClass ARS where
-  code     _ = "ARS"
+  code _ = "ARS"
   decimals _ = 2
 
 instance currencyAUD :: CurrencyClass AUD where
-  code     _ = "AUD"
+  code _ = "AUD"
   decimals _ = 2
 
 instance currencyAWG :: CurrencyClass AWG where
-  code     _ = "AWG"
+  code _ = "AWG"
   decimals _ = 2
 
 instance currencyAZN :: CurrencyClass AZN where
-  code     _ = "AZN"
+  code _ = "AZN"
   decimals _ = 2
 
 instance currencyBAM :: CurrencyClass BAM where
-  code     _ = "BAM"
+  code _ = "BAM"
   decimals _ = 2
 
 instance currencyBBD :: CurrencyClass BBD where
-  code     _ = "BBD"
+  code _ = "BBD"
   decimals _ = 2
 
 instance currencyBDT :: CurrencyClass BDT where
-  code     _ = "BDT"
+  code _ = "BDT"
   decimals _ = 2
 
 instance currencyBGN :: CurrencyClass BGN where
-  code     _ = "BGN"
+  code _ = "BGN"
   decimals _ = 2
 
 instance currencyBHD :: CurrencyClass BHD where
-  code     _ = "BHD"
+  code _ = "BHD"
   decimals _ = 3
 
 instance currencyBIF :: CurrencyClass BIF where
-  code     _ = "BIF"
+  code _ = "BIF"
   decimals _ = 0
 
 instance currencyBMD :: CurrencyClass BMD where
-  code     _ = "BMD"
+  code _ = "BMD"
   decimals _ = 2
 
 instance currencyBND :: CurrencyClass BND where
-  code     _ = "BND"
+  code _ = "BND"
   decimals _ = 2
 
 instance currencyBOB :: CurrencyClass BOB where
-  code     _ = "BOB"
+  code _ = "BOB"
   decimals _ = 2
 
 instance currencyBOV :: CurrencyClass BOV where
-  code     _ = "BOV"
+  code _ = "BOV"
   decimals _ = 2
 
 instance currencyBRL :: CurrencyClass BRL where
-  code     _ = "BRL"
+  code _ = "BRL"
   decimals _ = 2
 
 instance currencyBSD :: CurrencyClass BSD where
-  code     _ = "BSD"
+  code _ = "BSD"
   decimals _ = 2
 
 instance currencyBTN :: CurrencyClass BTN where
-  code     _ = "BTN"
+  code _ = "BTN"
   decimals _ = 2
 
 instance currencyBWP :: CurrencyClass BWP where
-  code     _ = "BWP"
+  code _ = "BWP"
   decimals _ = 2
 
 instance currencyBYR :: CurrencyClass BYR where
-  code     _ = "BYR"
+  code _ = "BYR"
   decimals _ = 0
 
 instance currencyBZD :: CurrencyClass BZD where
-  code     _ = "BZD"
+  code _ = "BZD"
   decimals _ = 2
 
 instance currencyCAD :: CurrencyClass CAD where
-  code     _ = "CAD"
+  code _ = "CAD"
   decimals _ = 2
 
 instance currencyCDF :: CurrencyClass CDF where
-  code     _ = "CDF"
+  code _ = "CDF"
   decimals _ = 2
 
 instance currencyCHE :: CurrencyClass CHE where
-  code     _ = "CHE"
+  code _ = "CHE"
   decimals _ = 2
 
 instance currencyCHF :: CurrencyClass CHF where
-  code     _ = "CHF"
+  code _ = "CHF"
   decimals _ = 2
 
 instance currencyCHW :: CurrencyClass CHW where
-  code     _ = "CHW"
+  code _ = "CHW"
   decimals _ = 2
 
 instance currencyCLF :: CurrencyClass CLF where
-  code     _ = "CLF"
+  code _ = "CLF"
   decimals _ = 4
 
 instance currencyCLP :: CurrencyClass CLP where
-  code     _ = "CLP"
+  code _ = "CLP"
   decimals _ = 0
 
 instance currencyCNY :: CurrencyClass CNY where
-  code     _ = "CNY"
+  code _ = "CNY"
   decimals _ = 2
 
 instance currencyCOP :: CurrencyClass COP where
-  code     _ = "COP"
+  code _ = "COP"
   decimals _ = 2
 
 instance currencyCOU :: CurrencyClass COU where
-  code     _ = "COU"
+  code _ = "COU"
   decimals _ = 2
 
 instance currencyCRC :: CurrencyClass CRC where
-  code     _ = "CRC"
+  code _ = "CRC"
   decimals _ = 2
 
 instance currencyCUC :: CurrencyClass CUC where
-  code     _ = "CUC"
+  code _ = "CUC"
   decimals _ = 2
 
 instance currencyCUP :: CurrencyClass CUP where
-  code     _ = "CUP"
+  code _ = "CUP"
   decimals _ = 2
 
 instance currencyCVE :: CurrencyClass CVE where
-  code     _ = "CVE"
+  code _ = "CVE"
   decimals _ = 2
 
 instance currencyCZK :: CurrencyClass CZK where
-  code     _ = "CZK"
+  code _ = "CZK"
   decimals _ = 2
 
 instance currencyDJF :: CurrencyClass DJF where
-  code     _ = "DJF"
+  code _ = "DJF"
   decimals _ = 0
 
 instance currencyDKK :: CurrencyClass DKK where
-  code     _ = "DKK"
+  code _ = "DKK"
   decimals _ = 2
 
 instance currencyDOP :: CurrencyClass DOP where
-  code     _ = "DOP"
+  code _ = "DOP"
   decimals _ = 2
 
 instance currencyDZD :: CurrencyClass DZD where
-  code     _ = "DZD"
+  code _ = "DZD"
   decimals _ = 2
 
 instance currencyEGP :: CurrencyClass EGP where
-  code     _ = "EGP"
+  code _ = "EGP"
   decimals _ = 2
 
 instance currencyERN :: CurrencyClass ERN where
-  code     _ = "ERN"
+  code _ = "ERN"
   decimals _ = 2
 
 instance currencyETB :: CurrencyClass ETB where
-  code     _ = "ETB"
+  code _ = "ETB"
   decimals _ = 2
 
 instance currencyEUR :: CurrencyClass EUR where
-  code     _ = "EUR"
+  code _ = "EUR"
   decimals _ = 2
 
 instance currencyFJD :: CurrencyClass FJD where
-  code     _ = "FJD"
+  code _ = "FJD"
   decimals _ = 2
 
 instance currencyFKP :: CurrencyClass FKP where
-  code     _ = "FKP"
+  code _ = "FKP"
   decimals _ = 2
 
 instance currencyGBP :: CurrencyClass GBP where
-  code     _ = "GBP"
+  code _ = "GBP"
   decimals _ = 2
 
 instance currencyGEL :: CurrencyClass GEL where
-  code     _ = "GEL"
+  code _ = "GEL"
   decimals _ = 2
 
 instance currencyGHS :: CurrencyClass GHS where
-  code     _ = "GHS"
+  code _ = "GHS"
   decimals _ = 2
 
 instance currencyGIP :: CurrencyClass GIP where
-  code     _ = "GIP"
+  code _ = "GIP"
   decimals _ = 2
 
 instance currencyGMD :: CurrencyClass GMD where
-  code     _ = "GMD"
+  code _ = "GMD"
   decimals _ = 2
 
 instance currencyGNF :: CurrencyClass GNF where
-  code     _ = "GNF"
+  code _ = "GNF"
   decimals _ = 0
 
 instance currencyGTQ :: CurrencyClass GTQ where
-  code     _ = "GTQ"
+  code _ = "GTQ"
   decimals _ = 2
 
 instance currencyGYD :: CurrencyClass GYD where
-  code     _ = "GYD"
+  code _ = "GYD"
   decimals _ = 2
 
 instance currencyHKD :: CurrencyClass HKD where
-  code     _ = "HKD"
+  code _ = "HKD"
   decimals _ = 2
 
 instance currencyHNL :: CurrencyClass HNL where
-  code     _ = "HNL"
+  code _ = "HNL"
   decimals _ = 2
 
 instance currencyHRK :: CurrencyClass HRK where
-  code     _ = "HRK"
+  code _ = "HRK"
   decimals _ = 2
 
 instance currencyHTG :: CurrencyClass HTG where
-  code     _ = "HTG"
+  code _ = "HTG"
   decimals _ = 2
 
 instance currencyHUF :: CurrencyClass HUF where
-  code     _ = "HUF"
+  code _ = "HUF"
   decimals _ = 2
 
 instance currencyIDR :: CurrencyClass IDR where
-  code     _ = "IDR"
+  code _ = "IDR"
   decimals _ = 2
 
 instance currencyILS :: CurrencyClass ILS where
-  code     _ = "ILS"
+  code _ = "ILS"
   decimals _ = 2
 
 instance currencyINR :: CurrencyClass INR where
-  code     _ = "INR"
+  code _ = "INR"
   decimals _ = 2
 
 instance currencyIQD :: CurrencyClass IQD where
-  code     _ = "IQD"
+  code _ = "IQD"
   decimals _ = 3
 
 instance currencyIRR :: CurrencyClass IRR where
-  code     _ = "IRR"
+  code _ = "IRR"
   decimals _ = 2
 
 instance currencyISK :: CurrencyClass ISK where
-  code     _ = "ISK"
+  code _ = "ISK"
   decimals _ = 0
 
 instance currencyJMD :: CurrencyClass JMD where
-  code     _ = "JMD"
+  code _ = "JMD"
   decimals _ = 2
 
 instance currencyJOD :: CurrencyClass JOD where
-  code     _ = "JOD"
+  code _ = "JOD"
   decimals _ = 3
 
 instance currencyJPY :: CurrencyClass JPY where
-  code     _ = "JPY"
+  code _ = "JPY"
   decimals _ = 0
 
 instance currencyKES :: CurrencyClass KES where
-  code     _ = "KES"
+  code _ = "KES"
   decimals _ = 2
 
 instance currencyKGS :: CurrencyClass KGS where
-  code     _ = "KGS"
+  code _ = "KGS"
   decimals _ = 2
 
 instance currencyKHR :: CurrencyClass KHR where
-  code     _ = "KHR"
+  code _ = "KHR"
   decimals _ = 2
 
 instance currencyKMF :: CurrencyClass KMF where
-  code     _ = "KMF"
+  code _ = "KMF"
   decimals _ = 0
 
 instance currencyKPW :: CurrencyClass KPW where
-  code     _ = "KPW"
+  code _ = "KPW"
   decimals _ = 2
 
 instance currencyKRW :: CurrencyClass KRW where
-  code     _ = "KRW"
+  code _ = "KRW"
   decimals _ = 0
 
 instance currencyKWD :: CurrencyClass KWD where
-  code     _ = "KWD"
+  code _ = "KWD"
   decimals _ = 3
 
 instance currencyKYD :: CurrencyClass KYD where
-  code     _ = "KYD"
+  code _ = "KYD"
   decimals _ = 2
 
 instance currencyKZT :: CurrencyClass KZT where
-  code     _ = "KZT"
+  code _ = "KZT"
   decimals _ = 2
 
 instance currencyLAK :: CurrencyClass LAK where
-  code     _ = "LAK"
+  code _ = "LAK"
   decimals _ = 2
 
 instance currencyLBP :: CurrencyClass LBP where
-  code     _ = "LBP"
+  code _ = "LBP"
   decimals _ = 2
 
 instance currencyLKR :: CurrencyClass LKR where
-  code     _ = "LKR"
+  code _ = "LKR"
   decimals _ = 2
 
 instance currencyLRD :: CurrencyClass LRD where
-  code     _ = "LRD"
+  code _ = "LRD"
   decimals _ = 2
 
 instance currencyLSL :: CurrencyClass LSL where
-  code     _ = "LSL"
+  code _ = "LSL"
   decimals _ = 2
 
 instance currencyLTL :: CurrencyClass LTL where
-  code     _ = "LTL"
+  code _ = "LTL"
   decimals _ = 2
 
 instance currencyLYD :: CurrencyClass LYD where
-  code     _ = "LYD"
+  code _ = "LYD"
   decimals _ = 3
 
 instance currencyMAD :: CurrencyClass MAD where
-  code     _ = "MAD"
+  code _ = "MAD"
   decimals _ = 2
 
 instance currencyMDL :: CurrencyClass MDL where
-  code     _ = "MDL"
+  code _ = "MDL"
   decimals _ = 2
 
 instance currencyMGA :: CurrencyClass MGA where
-  code     _ = "MGA"
+  code _ = "MGA"
   decimals _ = 2
 
 instance currencyMKD :: CurrencyClass MKD where
-  code     _ = "MKD"
+  code _ = "MKD"
   decimals _ = 2
 
 instance currencyMMK :: CurrencyClass MMK where
-  code     _ = "MMK"
+  code _ = "MMK"
   decimals _ = 2
 
 instance currencyMNT :: CurrencyClass MNT where
-  code     _ = "MNT"
+  code _ = "MNT"
   decimals _ = 2
 
 instance currencyMOP :: CurrencyClass MOP where
-  code     _ = "MOP"
+  code _ = "MOP"
   decimals _ = 2
 
 instance currencyMRO :: CurrencyClass MRO where
-  code     _ = "MRO"
+  code _ = "MRO"
   decimals _ = 2
 
 instance currencyMUR :: CurrencyClass MUR where
-  code     _ = "MUR"
+  code _ = "MUR"
   decimals _ = 2
 
 instance currencyMVR :: CurrencyClass MVR where
-  code     _ = "MVR"
+  code _ = "MVR"
   decimals _ = 2
 
 instance currencyMWK :: CurrencyClass MWK where
-  code     _ = "MWK"
+  code _ = "MWK"
   decimals _ = 2
 
 instance currencyMXN :: CurrencyClass MXN where
-  code     _ = "MXN"
+  code _ = "MXN"
   decimals _ = 2
 
 instance currencyMXV :: CurrencyClass MXV where
-  code     _ = "MXV"
+  code _ = "MXV"
   decimals _ = 2
 
 instance currencyMYR :: CurrencyClass MYR where
-  code     _ = "MYR"
+  code _ = "MYR"
   decimals _ = 2
 
 instance currencyMZN :: CurrencyClass MZN where
-  code     _ = "MZN"
+  code _ = "MZN"
   decimals _ = 2
 
 instance currencyNAD :: CurrencyClass NAD where
-  code     _ = "NAD"
+  code _ = "NAD"
   decimals _ = 2
 
 instance currencyNGN :: CurrencyClass NGN where
-  code     _ = "NGN"
+  code _ = "NGN"
   decimals _ = 2
 
 instance currencyNIO :: CurrencyClass NIO where
-  code     _ = "NIO"
+  code _ = "NIO"
   decimals _ = 2
 
 instance currencyNOK :: CurrencyClass NOK where
-  code     _ = "NOK"
+  code _ = "NOK"
   decimals _ = 2
 
 instance currencyNPR :: CurrencyClass NPR where
-  code     _ = "NPR"
+  code _ = "NPR"
   decimals _ = 2
 
 instance currencyNZD :: CurrencyClass NZD where
-  code     _ = "NZD"
+  code _ = "NZD"
   decimals _ = 2
 
 instance currencyOMR :: CurrencyClass OMR where
-  code     _ = "OMR"
+  code _ = "OMR"
   decimals _ = 3
 
 instance currencyPAB :: CurrencyClass PAB where
-  code     _ = "PAB"
+  code _ = "PAB"
   decimals _ = 2
 
 instance currencyPEN :: CurrencyClass PEN where
-  code     _ = "PEN"
+  code _ = "PEN"
   decimals _ = 2
 
 instance currencyPGK :: CurrencyClass PGK where
-  code     _ = "PGK"
+  code _ = "PGK"
   decimals _ = 2
 
 instance currencyPHP :: CurrencyClass PHP where
-  code     _ = "PHP"
+  code _ = "PHP"
   decimals _ = 2
 
 instance currencyPKR :: CurrencyClass PKR where
-  code     _ = "PKR"
+  code _ = "PKR"
   decimals _ = 2
 
 instance currencyPLN :: CurrencyClass PLN where
-  code     _ = "PLN"
+  code _ = "PLN"
   decimals _ = 2
 
 instance currencyPYG :: CurrencyClass PYG where
-  code     _ = "PYG"
+  code _ = "PYG"
   decimals _ = 0
 
 instance currencyQAR :: CurrencyClass QAR where
-  code     _ = "QAR"
+  code _ = "QAR"
   decimals _ = 2
 
 instance currencyRON :: CurrencyClass RON where
-  code     _ = "RON"
+  code _ = "RON"
   decimals _ = 2
 
 instance currencyRSD :: CurrencyClass RSD where
-  code     _ = "RSD"
+  code _ = "RSD"
   decimals _ = 2
 
 instance currencyRUB :: CurrencyClass RUB where
-  code     _ = "RUB"
+  code _ = "RUB"
   decimals _ = 2
 
 instance currencyRWF :: CurrencyClass RWF where
-  code     _ = "RWF"
+  code _ = "RWF"
   decimals _ = 0
 
 instance currencySAR :: CurrencyClass SAR where
-  code     _ = "SAR"
+  code _ = "SAR"
   decimals _ = 2
 
 instance currencySBD :: CurrencyClass SBD where
-  code     _ = "SBD"
+  code _ = "SBD"
   decimals _ = 2
 
 instance currencySCR :: CurrencyClass SCR where
-  code     _ = "SCR"
+  code _ = "SCR"
   decimals _ = 2
 
 instance currencySDG :: CurrencyClass SDG where
-  code     _ = "SDG"
+  code _ = "SDG"
   decimals _ = 2
 
 instance currencySEK :: CurrencyClass SEK where
-  code     _ = "SEK"
+  code _ = "SEK"
   decimals _ = 2
 
 instance currencySGD :: CurrencyClass SGD where
-  code     _ = "SGD"
+  code _ = "SGD"
   decimals _ = 2
 
 instance currencySHP :: CurrencyClass SHP where
-  code     _ = "SHP"
+  code _ = "SHP"
   decimals _ = 2
 
 instance currencySLL :: CurrencyClass SLL where
-  code     _ = "SLL"
+  code _ = "SLL"
   decimals _ = 2
 
 instance currencySOS :: CurrencyClass SOS where
-  code     _ = "SOS"
+  code _ = "SOS"
   decimals _ = 2
 
 instance currencySRD :: CurrencyClass SRD where
-  code     _ = "SRD"
+  code _ = "SRD"
   decimals _ = 2
 
 instance currencySSP :: CurrencyClass SSP where
-  code     _ = "SSP"
+  code _ = "SSP"
   decimals _ = 2
 
 instance currencySTD :: CurrencyClass STD where
-  code     _ = "STD"
+  code _ = "STD"
   decimals _ = 2
 
 instance currencySVC :: CurrencyClass SVC where
-  code     _ = "SVC"
+  code _ = "SVC"
   decimals _ = 2
 
 instance currencySYP :: CurrencyClass SYP where
-  code     _ = "SYP"
+  code _ = "SYP"
   decimals _ = 2
 
 instance currencySZL :: CurrencyClass SZL where
-  code     _ = "SZL"
+  code _ = "SZL"
   decimals _ = 2
 
 instance currencyTHB :: CurrencyClass THB where
-  code     _ = "THB"
+  code _ = "THB"
   decimals _ = 2
 
 instance currencyTJS :: CurrencyClass TJS where
-  code     _ = "TJS"
+  code _ = "TJS"
   decimals _ = 2
 
 instance currencyTMT :: CurrencyClass TMT where
-  code     _ = "TMT"
+  code _ = "TMT"
   decimals _ = 2
 
 instance currencyTND :: CurrencyClass TND where
-  code     _ = "TND"
+  code _ = "TND"
   decimals _ = 3
 
 instance currencyTOP :: CurrencyClass TOP where
-  code     _ = "TOP"
+  code _ = "TOP"
   decimals _ = 2
 
 instance currencyTRY :: CurrencyClass TRY where
-  code     _ = "TRY"
+  code _ = "TRY"
   decimals _ = 2
 
 instance currencyTTD :: CurrencyClass TTD where
-  code     _ = "TTD"
+  code _ = "TTD"
   decimals _ = 2
 
 instance currencyTWD :: CurrencyClass TWD where
-  code     _ = "TWD"
+  code _ = "TWD"
   decimals _ = 2
 
 instance currencyTZS :: CurrencyClass TZS where
-  code     _ = "TZS"
+  code _ = "TZS"
   decimals _ = 2
 
 instance currencyUAH :: CurrencyClass UAH where
-  code     _ = "UAH"
+  code _ = "UAH"
   decimals _ = 2
 
 instance currencyUGX :: CurrencyClass UGX where
-  code     _ = "UGX"
+  code _ = "UGX"
   decimals _ = 0
 
 instance currencyUSD :: CurrencyClass USD where
-  code     _ = "USD"
+  code _ = "USD"
   decimals _ = 2
 
 instance currencyUSN :: CurrencyClass USN where
-  code     _ = "USN"
+  code _ = "USN"
   decimals _ = 2
 
 instance currencyUYI :: CurrencyClass UYI where
-  code     _ = "UYI"
+  code _ = "UYI"
   decimals _ = 0
 
 instance currencyUYU :: CurrencyClass UYU where
-  code     _ = "UYU"
+  code _ = "UYU"
   decimals _ = 2
 
 instance currencyUZS :: CurrencyClass UZS where
-  code     _ = "UZS"
+  code _ = "UZS"
   decimals _ = 2
 
 instance currencyVEF :: CurrencyClass VEF where
-  code     _ = "VEF"
+  code _ = "VEF"
   decimals _ = 2
 
 instance currencyVND :: CurrencyClass VND where
-  code     _ = "VND"
+  code _ = "VND"
   decimals _ = 0
 
 instance currencyVUV :: CurrencyClass VUV where
-  code     _ = "VUV"
+  code _ = "VUV"
   decimals _ = 0
 
 instance currencyWST :: CurrencyClass WST where
-  code     _ = "WST"
+  code _ = "WST"
   decimals _ = 2
 
 instance currencyXAF :: CurrencyClass XAF where
-  code     _ = "XAF"
+  code _ = "XAF"
   decimals _ = 0
 
 instance currencyXCD :: CurrencyClass XCD where
-  code     _ = "XCD"
+  code _ = "XCD"
   decimals _ = 2
 
 instance currencyXOF :: CurrencyClass XOF where
-  code     _ = "XOF"
+  code _ = "XOF"
   decimals _ = 0
 
 instance currencyXPF :: CurrencyClass XPF where
-  code     _ = "XPF"
+  code _ = "XPF"
   decimals _ = 0
 
 instance currencyYER :: CurrencyClass YER where
-  code     _ = "YER"
+  code _ = "YER"
   decimals _ = 2
 
 instance currencyZAR :: CurrencyClass ZAR where
-  code     _ = "ZAR"
+  code _ = "ZAR"
   decimals _ = 2
 
 instance currencyZMW :: CurrencyClass ZMW where
-  code     _ = "ZMW"
+  code _ = "ZMW"
   decimals _ = 2
 
 instance currencyZWL :: CurrencyClass ZWL where
-  code     _ = "ZWL"
+  code _ = "ZWL"
   decimals _ = 2
