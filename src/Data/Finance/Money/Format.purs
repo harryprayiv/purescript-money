@@ -1,13 +1,11 @@
-module Data.Finance.Money.Format
+module Money.Format
   ( Format
   , FormatF(..)
   , ifNegative
   , literal
   , currencyCode
   , absolute
-
   , sbind
-
   , numeric
   , numericC
   , accountant
