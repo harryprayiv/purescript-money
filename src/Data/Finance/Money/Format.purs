@@ -1,4 +1,4 @@
-module Money.Format
+module Data.Finance.Money.Format
   ( Format
   , FormatF(..)
   , ifNegative
@@ -74,7 +74,8 @@ numericC = do
   currencyCode
   literal space
   absolute
-  where discard = sbind
+  where
+  discard = sbind
 
 -- | Accountant format, with negative amounts parenthesized, and no currency
 -- | indicator.
@@ -83,7 +84,8 @@ accountant = do
   ifNegative $ literal "("
   absolute
   ifNegative $ literal ")"
-  where discard = sbind
+  where
+  discard = sbind
 
 -- | Accountant format, with negative amounts parenthesized, and a currency
 -- | code.
@@ -94,9 +96,8 @@ accountantC = do
   literal space
   absolute
   ifNegative $ literal ")"
-  where discard = sbind
-
---------------------------------------------------------------------------------
+  where
+  discard = sbind
 
 minus :: String
 minus = "\x2212"

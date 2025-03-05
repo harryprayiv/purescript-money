@@ -1,0 +1,19 @@
+package:
+  name: money
+  dependencies:
+    - console
+    - effect
+    - foldable-traversable
+    - integers
+    - lists
+    - newtype
+    - prelude
+    - rationals
+  test:
+    main: Test.Main
+    dependencies:
+      - test-unit
+workspace:
+  extraPackages: {}
+  packageSet:
+    url: https://raw.githubusercontent.com/purescript/package-sets/psc-0.15.15-20250222/packages.json
