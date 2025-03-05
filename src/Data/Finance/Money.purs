@@ -2,125 +2,141 @@ module Data.Finance.Money
   ( Discrete(..)
   , formatDiscrete
   , showDiscrete
-
   , Dense(..)
   , formatDense
-
   , Rounding(..)
   , fromDiscrete
   , fromDense
   ) where
 
-import Data.Finance.Currency (kind Currency, class Currency, CProxy(..))
-import Data.Finance.Currency as Currency
-import Data.Finance.Money.Format (Format, FormatF(..), absolute, ifNegative, literal)
-import Data.Foldable (foldMap)
-import Data.Generic (class Generic, gShow)
-import Data.Int as Int
-import Data.Module (class LeftModule, class RightModule)
-import Data.Newtype (class Newtype)
-import Data.Ord (abs)
-import Data.Rational (Rational, (%))
-import Data.Rational as Rational
-import Global.Unsafe (unsafeToFixed)
-import Math (pow)
 import Prelude
 
---------------------------------------------------------------------------------
+import Currency (class CurrencyClass, CProxy(..), Currency)
+import Currency as Currency
+import Data.Array (replicate)
+import Data.Generic.Rep (class Generic)
+import Data.Int (ceil, floor, round, toNumber) as Int
+import Data.List (foldMap)
+import Data.Newtype (class Newtype)
+import Data.Number (abs, floor, pow, round) as Number
+import Data.String (length)
+import Data.String.CodeUnits (fromCharArray)
+import Money.Format (Format, FormatF(..), ifNegative, literal, absolute)
 
--- | An amount of money in the smallest discrete unit of a particular currency.
--- | For example, `wrap 256 :: Discrete GBP` would represent £2.56, whereas
--- | `wrap 256 :: Discrete JPY` would represent ¥256. If you want to work with
--- | higher granularity, you can define your own currency type.
 newtype Discrete (c :: Currency) = Discrete Int
 derive newtype instance eqDiscrete  :: Eq (Discrete c)
 derive newtype instance ordDiscrete :: Ord (Discrete c)
-derive instance genericDiscrete     :: Generic (Discrete c)
+derive instance genericDiscrete     :: Generic (Discrete c) _
 derive instance newtypeDiscrete     :: Newtype (Discrete c) _
-instance showDiscreteInstance :: Show (Discrete c) where show = gShow
 
-instance leftModuleDiscrete :: LeftModule (Discrete c) Int where
-  mzeroL = Discrete 0
-  maddL (Discrete a) (Discrete b) = Discrete (a + b)
-  msubL (Discrete a) (Discrete b) = Discrete (a - b)
-  mmulL a            (Discrete b) = Discrete (a * b)
+instance showDiscreteInstance :: CurrencyClass c => Show (Discrete c) where 
+  show = showDiscrete
 
-instance rightModuleDiscrete :: RightModule (Discrete c) Int where
-  mzeroR = Discrete 0
-  maddR (Discrete a) (Discrete b) = Discrete (a + b)
-  msubR (Discrete a) (Discrete b) = Discrete (a - b)
-  mmulR (Discrete a) b            = Discrete (a * b)
-
--- | Apply a format to a discrete amount.
-formatDiscrete :: ∀ c. Currency c => Format -> Discrete c -> String
+formatDiscrete :: forall c. CurrencyClass c => Format -> Discrete c -> String
 formatDiscrete f (Discrete n) = foldMap go f
   where
   go (IfNegative s) = if n < 0 then foldMap go s else ""
   go (Literal s)    = s
   go CurrencyCode   = Currency.code (CProxy :: CProxy c)
   go Absolute       =
-    unsafeToFixed d (n' / pow 10.0 (Int.toNumber d))
+    toFixedString d (Number.abs $ Int.toNumber n / Number.pow 10.0 (Int.toNumber d))
     where
-    n' = abs $ Int.toNumber n
     d = Currency.decimals (CProxy :: CProxy c)
 
--- | DEPRECATED: use `formatDiscrete` instead.
--- |
--- | Show the discrete value with the correct number of decimals. Will not
--- | prepend the currency sign. Negative amounts are prefixed with a
--- | hyphen-minus.
--- |
--- | Examples:
--- |
--- |  - `showDiscrete (Discrete   256  :: Discrete GBP) ==  "2.56"`
--- |  - `showDiscrete (Discrete (-256) :: Discrete GBP) == "-2.56"`
-showDiscrete :: ∀ c. Currency c => Discrete c -> String
+-- Pure PureScript implementation of toFixed
+toFixedString :: Int -> Number -> String
+toFixedString decimals num =
+  let
+    -- Calculate the multiplier factor
+    factor = Number.pow 10.0 (Int.toNumber decimals)
+    
+    -- Round the number to the specified decimals
+    multiplied = Number.round (num * factor)
+    rounded = multiplied / factor
+    
+    -- Extract the integer and fractional parts
+    intPart = Number.floor rounded
+    intPartStr = show (Int.floor intPart)
+    
+    -- Calculate the fractional part
+    fracPart = Number.abs (rounded - intPart)
+    
+    -- Format the fractional part if needed
+    fracString = 
+      if decimals <= 0 
+      then ""
+      else
+        let
+          -- Scale the fractional part
+          scaledFrac = fracPart * factor
+          -- Get digits as integer, then as string
+          fracDigits = Int.floor (scaledFrac + 0.5) -- Add 0.5 to handle rounding
+          fracStr = show fracDigits
+          padded = padStart decimals fracStr
+        in
+          "." <> padded
+  in
+    intPartStr <> fracString
+
+-- Helper function to pad a string with leading zeros
+padStart :: Int -> String -> String
+padStart targetLength str =
+  let
+    currentLength = length str
+    paddingLength = max 0 (targetLength - currentLength)
+    padding = if paddingLength <= 0 
+              then "" 
+              else fromCharArray (replicate paddingLength '0')
+  in
+    padding <> str
+
+showDiscrete :: forall c. CurrencyClass c => Discrete c -> String
 showDiscrete = formatDiscrete $ ifNegative (literal "-") <> absolute
 
---------------------------------------------------------------------------------
-
--- | Amounts of money with exact arithmetic.
-newtype Dense (c :: Currency) = Dense Rational
+newtype Dense (c :: Currency) = Dense Number
 derive newtype instance eqDense  :: Eq (Dense c)
 derive newtype instance ordDense :: Ord (Dense c)
 derive instance newtypeDense     :: Newtype (Dense c) _
-instance showDense :: Show (Dense c) where
+instance showDense :: CurrencyClass c => Show (Dense c) where
   show (Dense r) = "(Dense " <> show r <> ")"
 
-instance leftModuleDense :: LeftModule (Dense c) Rational where
-  mzeroL = Dense zero
-  maddL (Dense a) (Dense b) = Dense (a + b)
-  msubL (Dense a) (Dense b) = Dense (a - b)
-  mmulL a         (Dense b) = Dense (a * b)
-
-instance rightModuleDense :: RightModule (Dense c) Rational where
-  mzeroR = Dense zero
-  maddR (Dense a) (Dense b) = Dense (a + b)
-  msubR (Dense a) (Dense b) = Dense (a - b)
-  mmulR (Dense a) b         = Dense (a * b)
-
-formatDense :: ∀ c. Currency c => Rounding -> Format -> Dense c -> String
+formatDense :: forall c. CurrencyClass c => Rounding -> Format -> Dense c -> String
 formatDense r f d = formatDiscrete f $ fromDense r d
 
---------------------------------------------------------------------------------
-
--- | Rounding policy.
 data Rounding = Up | Down | ToZero | FromZero | Nearest
 derive instance eqRounding  :: Eq Rounding
 derive instance ordRounding :: Ord Rounding
 
--- | Convert a discrete amount to a dense amount.
-fromDiscrete :: ∀ c. Currency c => Discrete c -> Dense c
-fromDiscrete (Discrete n) = Dense $ n % Int.pow 10 d
+fromDiscrete :: forall c. CurrencyClass c => Discrete c -> Dense c
+fromDiscrete (Discrete n) = Dense $ Int.toNumber n / Number.pow 10.0 (Int.toNumber d)
   where d = Currency.decimals (CProxy :: CProxy c)
 
--- | Convert a dense amount to a discrete amount, rounding accordingly.
-fromDense :: ∀ c. Currency c => Rounding -> Dense c -> Discrete c
+fromDense :: forall c. CurrencyClass c => Rounding -> Dense c -> Discrete c
 fromDense r (Dense n) = Discrete case r of
-  Up       -> Int.ceil  n'
+  Up       -> Int.ceil n'
   Down     -> Int.floor n'
-  ToZero   -> (if n < zero then Int.ceil else Int.floor) n'
-  FromZero -> (if n > zero then Int.ceil else Int.floor) n'
+  ToZero   -> if n < 0.0 then Int.ceil n' else Int.floor n'
+  FromZero -> if n > 0.0 then Int.ceil n' else Int.floor n'
   Nearest  -> Int.round n'
-  where n' = Rational.toNumber $ n * (Int.pow 10 d % 1)
-        d  = Currency.decimals (CProxy :: CProxy c)
+  where 
+    n' = n * Number.pow 10.0 (Int.toNumber d)
+    d  = Currency.decimals (CProxy :: CProxy c)
+
+-- For basic arithmetic operations on Discrete and Dense types
+instance semiringDiscrete :: Semiring (Discrete c) where
+  add (Discrete a) (Discrete b) = Discrete (a + b)
+  zero = Discrete 0
+  mul (Discrete a) (Discrete b) = Discrete (a * b)
+  one = Discrete 1
+
+instance ringDiscrete :: Ring (Discrete c) where
+  sub (Discrete a) (Discrete b) = Discrete (a - b)
+
+instance semiringDense :: Semiring (Dense c) where
+  add (Dense a) (Dense b) = Dense (a + b)
+  zero = Dense 0.0
+  mul (Dense a) (Dense b) = Dense (a * b)
+  one = Dense 1.0
+
+instance ringDense :: Ring (Dense c) where
+  sub (Dense a) (Dense b) = Dense (a - b)
