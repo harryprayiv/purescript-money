@@ -12,43 +12,65 @@
             "lists",
             "newtype",
             "prelude",
-            "rationals"
+            "rationals",
+            "yoga-json"
           ],
           "build_plan": [
+            "arrays",
             "bifunctors",
+            "catenable-lists",
             "console",
             "const",
             "contravariant",
             "control",
+            "datetime",
             "distributive",
             "effect",
             "either",
+            "enums",
+            "exceptions",
             "exists",
             "foldable-traversable",
+            "foreign",
+            "foreign-object",
+            "free",
             "functions",
             "functors",
+            "gen",
             "identity",
             "integers",
             "invariant",
             "js-bigints",
+            "js-date",
             "lazy",
             "lists",
             "maybe",
             "newtype",
             "nonempty",
+            "now",
+            "nullable",
             "numbers",
+            "ordered-collections",
             "orders",
             "partial",
             "prelude",
             "profunctor",
             "rationals",
+            "record",
             "refs",
             "safe-coerce",
+            "st",
+            "strings",
             "tailrec",
+            "transformers",
             "tuples",
             "type-equality",
+            "typelevel-prelude",
             "unfoldable",
-            "unsafe-coerce"
+            "unsafe-coerce",
+            "variant",
+            "yoga-json",
+            "yoga-tree"
           ]
         },
         "test": {
@@ -8292,6 +8314,41 @@
         "tuples"
       ]
     },
+    "foreign": {
+      "type": "git",
+      "url": "https://github.com/purescript/purescript-foreign.git",
+      "rev": "2dd222d1ec7363fa0a0a7adb0d8eaf81bb7006dd",
+      "dependencies": [
+        "either",
+        "functions",
+        "identity",
+        "integers",
+        "lists",
+        "maybe",
+        "prelude",
+        "strings",
+        "transformers"
+      ]
+    },
+    "foreign-object": {
+      "type": "git",
+      "url": "https://github.com/purescript/purescript-foreign-object.git",
+      "rev": "9bfb4eb6271b151414594cfec669fb4b18b91bd1",
+      "dependencies": [
+        "arrays",
+        "foldable-traversable",
+        "functions",
+        "gen",
+        "lists",
+        "maybe",
+        "prelude",
+        "st",
+        "tailrec",
+        "tuples",
+        "typelevel-prelude",
+        "unfoldable"
+      ]
+    },
     "free": {
       "type": "git",
       "url": "https://github.com/purescript/purescript-free.git",
@@ -8398,6 +8455,19 @@
         "prelude"
       ]
     },
+    "js-date": {
+      "type": "git",
+      "url": "https://github.com/purescript-contrib/purescript-js-date.git",
+      "rev": "1ea020316946cc4b87195bca9c54d0c16abaa490",
+      "dependencies": [
+        "datetime",
+        "effect",
+        "exceptions",
+        "foreign",
+        "integers",
+        "now"
+      ]
+    },
     "js-timers": {
       "type": "git",
       "url": "https://github.com/purescript-contrib/purescript-js-timers.git",
@@ -8480,6 +8550,25 @@
         "prelude",
         "tuples",
         "unfoldable"
+      ]
+    },
+    "now": {
+      "type": "git",
+      "url": "https://github.com/purescript-contrib/purescript-now.git",
+      "rev": "b5ffed2381e5fefc063f484e607e8499e79eaf32",
+      "dependencies": [
+        "datetime",
+        "effect"
+      ]
+    },
+    "nullable": {
+      "type": "git",
+      "url": "https://github.com/purescript-contrib/purescript-nullable.git",
+      "rev": "3202744c6c65e8d1fbba7f4256a1c482078e7fb5",
+      "dependencies": [
+        "effect",
+        "functions",
+        "maybe"
       ]
     },
     "numbers": {
@@ -8747,6 +8836,15 @@
       "rev": "0525b7d39e0fbd81b4209518139fb8ab02695774",
       "dependencies": []
     },
+    "typelevel-prelude": {
+      "type": "git",
+      "url": "https://github.com/purescript/purescript-typelevel-prelude.git",
+      "rev": "dca2fe3c8cfd5527d4fe70c4bedfda30148405bf",
+      "dependencies": [
+        "prelude",
+        "type-equality"
+      ]
+    },
     "unfoldable": {
       "type": "git",
       "url": "https://github.com/purescript/purescript-unfoldable.git",
@@ -8764,6 +8862,73 @@
       "url": "https://github.com/purescript/purescript-unsafe-coerce.git",
       "rev": "ab956f82e66e633f647fb3098e8ddd3ec58d689f",
       "dependencies": []
+    },
+    "variant": {
+      "type": "git",
+      "url": "https://github.com/natefaubion/purescript-variant.git",
+      "rev": "8b2bd73a4202257d80a955c4dd36f6055f149823",
+      "dependencies": [
+        "enums",
+        "lists",
+        "maybe",
+        "partial",
+        "prelude",
+        "record",
+        "tuples",
+        "unsafe-coerce"
+      ]
+    },
+    "yoga-json": {
+      "type": "git",
+      "url": "https://github.com/rowtype-yoga/purescript-yoga-json.git",
+      "rev": "3c30b89b20aa140823591814e463b2e8a7995598",
+      "dependencies": [
+        "arrays",
+        "bifunctors",
+        "control",
+        "datetime",
+        "effect",
+        "either",
+        "exceptions",
+        "foldable-traversable",
+        "foreign",
+        "foreign-object",
+        "free",
+        "identity",
+        "integers",
+        "js-bigints",
+        "js-date",
+        "lists",
+        "maybe",
+        "newtype",
+        "nullable",
+        "numbers",
+        "ordered-collections",
+        "partial",
+        "prelude",
+        "record",
+        "strings",
+        "transformers",
+        "tuples",
+        "typelevel-prelude",
+        "unsafe-coerce",
+        "variant",
+        "yoga-tree"
+      ]
+    },
+    "yoga-tree": {
+      "type": "git",
+      "url": "https://github.com/rowtype-yoga/purescript-yoga-tree.git",
+      "rev": "61ae983c2bd276b6d657259f681f365ce04ca76b",
+      "dependencies": [
+        "arrays",
+        "control",
+        "foldable-traversable",
+        "free",
+        "maybe",
+        "prelude",
+        "tailrec"
+      ]
     }
   }
 }

@@ -9,6 +9,7 @@ package:
     - newtype
     - prelude
     - rationals
+    - yoga-json
   test:
     main: Test.Main
     dependencies:
